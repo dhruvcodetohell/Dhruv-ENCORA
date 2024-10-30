@@ -75,7 +75,7 @@ const RepoTable: React.FC<RepoTableProps> = ({
         page={page}
         onPageChange={handleChangePage}
         rowsPerPage={rowsPerPage}
-        rowsPerPageOptions={[10]} // Disable rows per page selection
+        rowsPerPageOptions={[rowsPerPage]} // Disable rows per page selection
       />
     </Paper>
   );
