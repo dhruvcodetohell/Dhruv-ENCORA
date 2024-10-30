@@ -1,0 +1,76 @@
+@use '../../styles/variables' as vars;
+
+// Main container styling for the table
+.tableContainer {
+  margin: 2rem auto; // Center the table and add vertical spacing
+  border-radius: 0.5rem; // Rounded corners
+  overflow: hidden; // Ensure no overflow
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+  width: 100%; // Full-width within its container
+}
+
+// Header row styling for table head
+.tableHeadRow {
+  background-color: vars.$primary-color; // Use primary color from variables
+  color: white;
+
+  th {
+    color: white; // Ensure text color contrasts with the background
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.75rem;
+    text-align: left; // Align text to the left for readability
+  }
+}
+
+// Styling for each table row in the body
+.tableRow {
+  min-height: 3.5rem; // Set a minimum height for each row
+
+  // Alternate row background for better readability
+  &:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  // Hover effect for row to improve interactivity
+  &:hover {
+    background-color: #f1f1f1; // Slightly darker background on hover
+    cursor: pointer; // Change cursor to indicate interactivity
+  }
+
+  // Cell styling within table rows
+  td {
+    font-size: 1rem;
+    padding: 0.75rem;
+    max-width: 12rem; // Limit width to prevent overflow issues
+    white-space: nowrap; // Prevent text wrapping
+    overflow: hidden; // Hide overflowed text
+    text-overflow: ellipsis; // Add ellipsis for overflowing text
+  }
+}
+
+// Styling for links inside table cells
+.repoLink {
+  color: vars.$primary-color; // Use primary color for links
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.2s; // Smooth transition for hover effect
+  white-space: nowrap; // Prevent text wrapping
+  overflow: hidden; // Hide overflowed text
+  text-overflow: ellipsis; // Add ellipsis for long repo names
+
+  &:hover {
+    text-decoration: underline; // Underline on hover for emphasis
+  }
+}
+
+// Responsive styling for mobile devices (max-width 600px)
+@media (max-width: 600px) {
+  .tableContainer {
+    padding: 1rem; // Add padding to avoid edge-to-edge layout on small screens
+  }
+
+  .tableHeadRow th, .tableRow td {
+    font-size: 0.875rem; // Smaller font for better readability on mobile
+  }
+}

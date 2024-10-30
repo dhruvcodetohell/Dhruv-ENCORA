@@ -1,0 +1,26 @@
+{
+  "titles": {
+    "appTitle": "GoDaddy Repositories",
+    "loadingMessage": "Loading repositories...",
+    "errorMessage": "Error fetching repositories",
+    "repoDetailsLoading": "Loading repository details...",
+    "repoDetailsError": "Error fetching repository details",
+    "noReposMessage": "No Repositories Present",
+    "loadingHome":"loadingHome"
+  },
+  "labels": {
+    "goToGitHub": "Go to GitHub Page",
+    "language": "Language",
+    "forks": "Forks",
+    "openIssues": "Open Issues",
+    "watchers": "Watchers",
+    "license": "License",
+    "archived": "Archived",
+    "repositoryName": "Repository Name"
+  },
+  "placeholders": {
+    "noDescription": "No description available",
+    "noLanguage": "No language specified",
+    "noData": "No data Present"
+  }
+}

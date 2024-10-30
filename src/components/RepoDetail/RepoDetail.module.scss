@@ -1,0 +1,115 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mixins;
+
+// Container styling for the repository detail view
+.repoDetailContainer {
+  padding: 2rem;
+  background-color: vars.$background-color; // Use background color from variables
+  border-radius: 0.5rem; // Rounded corners for a smooth look
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+  max-width: 800px; // Limit width to make it centered and easier to read
+  margin: 1.5rem auto; // Center the container with vertical margin
+
+  // Heading styles
+  h1 {
+    color: vars.$primary-color; // Primary color for main title
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center; // Centered text for better layout balance
+  }
+
+  // Paragraph styles for description
+  p {
+    color: vars.$text-color; // Text color from variables
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.6; // Improved readability with line-height
+    text-align: center; // Center-align for visual balance
+  }
+
+  // Link styling (e.g., for GitHub link)
+  a {
+    color: vars.$primary-color;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s; // Smooth transition for hover effect
+    display: inline-block;
+
+    &:hover {
+      text-decoration: underline; // Underline on hover for emphasis
+    }
+  }
+
+  // Styling for detail list (e.g., forks, issues, watchers)
+  ul {
+    list-style: none; // Remove default list styling
+    padding: 0;
+    margin-top: 1.5rem;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      font-size: 1rem;
+      color: vars.$secondary-color; // Use secondary color for list items
+      background-color: #f8f9fa; // Light background for list items
+      border-radius: 0.25rem; // Rounded corners for each item
+      margin-bottom: 0.75rem;
+
+      &:last-child {
+        margin-bottom: 0; // Remove bottom margin from the last item
+      }
+
+      &.archived {
+        color: vars.$archived-color; // Special color for archived items
+        font-weight: bold;
+      }
+
+      // Label styling within list items
+      span.label {
+        font-weight: 500;
+        color: vars.$primary-color; // Primary color for labels
+        flex: 1; // Flex for alignment within list item
+      }
+
+      // Value styling within list items
+      span.value {
+        font-weight: 400;
+        color: vars.$text-color; // Regular text color for values
+        flex: 2; // Larger flex to accommodate longer text
+        text-align: right; // Align text to the right for clear separation
+      }
+    }
+  }
+
+  // Styling for inline links (e.g., license link)
+  .link {
+    color: vars.$primary-color;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem; // Padding for button-like feel
+    border-radius: 0.25rem;
+    background-color: #f1f1f1; // Light background for contrast
+
+    &:hover {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)); // Subtle gradient on hover
+      text-decoration: underline; // Underline on hover for emphasis
+    }
+  }
+
+  // Responsive styling for smaller screens (use mixin for responsiveness)
+  @include mixins.responsive(small) {
+    padding: 1rem; // Reduce padding for mobile view
+
+    h1 {
+      font-size: 1.5rem; // Smaller font size for mobile
+    }
+
+    p,
+    ul li {
+      font-size: 0.875rem; // Adjust font size for better readability on mobile
+    }
+  }
+}
