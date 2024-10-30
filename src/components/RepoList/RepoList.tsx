@@ -15,6 +15,7 @@ import { ROUTES } from "../../routes";
 import styles from "./RepoList.module.scss";
 import RepoTableRow from "./RepoListRow";
 import NoData from "./NoData";
+import { tableHeaders } from "../../constants/tableHeaders";
 
 interface RepoTableProps {
   baseRoute?: (repoName: string) => string; // Accepts a function for dynamic routes
@@ -46,18 +47,20 @@ const RepoTable: React.FC<RepoTableProps> = ({
   if (error) return <div>{titles.errorMessage}</div>;
 
   return (
-    <Paper className={styles.tableContainer}>
+    <Paper className={styles?.tableContainer}>
       <TableContainer>
         <Table>
           <TableHead>
             <TableRow className={styles.tableHeadRow}>
-              <TableCell>{labels.repositoryName}</TableCell>
-              <TableCell>{labels.forks}</TableCell>
-              <TableCell>{labels.openIssues}</TableCell>
-              <TableCell>{labels.watchers}</TableCell>
+              {tableHeaders.map((header) => (
+                <TableCell key={header.labelKey}>
+                  {labels[header.labelKey as keyof typeof labels]}{" "}
+                  {/* Type assertion to access labels */}
+                </TableCell>
+              ))}
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody>  
             {displayedRepos?.length > 0 ? (
               displayedRepos?.map((repo) => (
                 <RepoTableRow key={repo.id} repo={repo} baseRoute={baseRoute} />
